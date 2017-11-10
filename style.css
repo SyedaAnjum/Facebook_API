@@ -1,0 +1,52 @@
+body {
+        padding: 3%;
+        cursor: pointer;
+        background-color: lightblue;
+      }
+
+a {
+    color: #FFEB3B;
+    }    
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+
+
+.facebookBtn {
+        margin-left: 10px;
+        color: yellow;
+      }
+      .myBirthday, .myProfileId, .myHomeTown, .mylocation, .myGender {
+        margin-left: 10px;
+        color: azure;
+      }
+
+      .myProfilePic, .myFbName {
+        margin-left: 10px;
+        color: azure;
+      }
+
+@media screen and (min-width: 768px){
+      
+      }
+      @media screen and (min-width: 480px ) and (max-width: 767px){
+      #facebookBtn {
+      }
+  }
+      @media screen and (min-width: 140px ) and (max-width: 480px){
+      #facebookBtn {
+    
+      }
+    }            
