@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-var myFacebookToken ='EAACEdEose0cBANKuhxPCvXqhMqQp9rybRzBmZAhAFZCNr9ZC3NfaVyY1kiJr2KZCJ2XWRYyWV0h4fc5KNG0IMa26ZAUewfM3YY7nK9ovyOJz5n2aiwswa9vWFBVBO4LECIiEc4n0cdoZBEM2baZCSQcrXi4NYRsfkxnDFQAZBcXsVl68s3pZCSnJqaSTPTxRNqwZBuZBMv9zzPPywZDZD';
+var myFacebookToken ='EAACEdEose0cBAPZBKmyQXXi189U8RCsZAyNgQC3UlGLaOzCj6VElvw4EGZAyNir5KPDVQbJwYGYuJ01xCFnKBKgn2kU3s9FbBnzYz00OXwrYsSTySovJIbLHc9CJxdtR9K0CwPVKfJQvVQOwtHNn09VBR7qMyHQ4tBDQusahIoZBiaZCZAZCvE7LQATaFV9o4VYVbu1W19vqAZDZD';
 
 function getFacebookInfo() {
 
@@ -12,30 +12,39 @@ function getFacebookInfo() {
                 $("#myFirstName").text(response.first_name);
                     $("#myLastName").text(response.last_name);
                     $("#myFbName").text(response.name);
-               $("#myBirthday").text(response.birthday);
+                $("#myBirthday").text(response.birthday);
                $("#myProfileId").html('<a target="blank" href="https://facebook.com/'+response.id+'">https://facebook.com/'+response.id+'</a>');
                     $("#myHomeTown").text(response.hometown.name);
                     $("#myLocation").text(response.location.name);
                      $("#myGender").text(response.gender);
                     $("#myProfilePic").html('<img src="https://graph.facebook.com/' + response.id + '/picture"  />');
                     $("#myProfilePicLarge").html('<img src="https://graph.facebook.com/' + response.id + '/picture?type=large"  id="myProfilePic"/>');
-                    $("#PostId1").text(response.feed.data[0].story);
-                    $("#PostId1").text(response.feed.data[0].created_time);
-                    $("#PostId2").text(response.feed.data[1].story);
-                    $("#PostId3").text(response.feed.data[2].story);
-                    $("#PostId4").text(response.feed.data[3].story);
-                    $("#PostId5").text(response.feed.data[4].story);
-                    $("#PostId6").text(response.feed.data[5].story);
-                    $("#PostId7").text(response.feed.data[6].story);
-                    $("#PostId8").text(response.feed.data[7].story);
-                    $("#PostId9").text(response.feed.data[8].story);
-                    $("#PostId10").text(response.feed.data[9].story);
+                    
+                    
 
-          
-          },
+                $("#loadpost"). click(function(){
 
-           error : function(request,errorType,errorMessage){
+                       $.ajax( {
 
+                           url : "https://graph.facebook.com/me?fields=posts&access_token=" + myToken ,
+
+                                method : "GET" ,
+                               success : function (response) {
+                                 var element = response.post.data ;
+                                  for(var i=0 ; i < 10 ; i++){
+                                   var postId = "#PostId"+i ;
+                                   $(PostId.text(response.post.data));
+                            
+                                  }
+
+                                },
+
+
+                    }
+
+                  
+
+                  error : function(request,errorType,errorMessage){
                     console.log(request);
                     console.log(errorType);
                     alert("Check your console!");
@@ -61,7 +70,9 @@ function getFacebookInfo() {
 
 
 } //end fb info
+} );
 
 $("#facebookBtn").on('click',getFacebookInfo);
 
 }    );
+
