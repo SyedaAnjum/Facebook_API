@@ -28,7 +28,7 @@ function getFacebookInfo() {
                                 alert("Check your console!");
                             },
 
-                          timeout:5000, 
+                          timeout:5000, //in ms 
 
 }); //end of ajax call     
 
@@ -51,7 +51,8 @@ $("#facebookBtn").on('click',getFacebookInfo);
                                 element = response.posts.data ;
                                 for(var i=0 ; i < 10 ; i++){
                                 var postId = "#PostId"+i ;
-                                $(postId).text(response.posts.data[i]); 
+                                $(postId).text(response.posts.data[i].story); 
+                                console.log(response.posts.data[i]);
                                 }
 
                                 },
